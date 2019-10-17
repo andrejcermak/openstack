@@ -6,7 +6,9 @@ flavors = [
         "standard.memory"]
 
 connection_types = ["ssh",
-                    "all_icmp"]
+                    "all_icmp",
+                    "http",
+                    "https"]
 
 AUTH_URL = "https://identity.cloud.muni.cz/v3"
 PROJECT_DOMAIN_ID = "f9ec246d5e81496b921be023ee9ac672"
