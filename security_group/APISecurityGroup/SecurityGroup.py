@@ -30,20 +30,33 @@ class SecurityGroupRule:
         try:
             if type == "ssh":
                 new_rule = connection.network.create_security_group_rule(
-                            direction="ingress",
-                            protocol="tcp",
-                            port_range_max=22,
-                            port_range_min=22,
-                            security_group_id=security_group_id,
-                            ether_type="IPv4",
-
-                        )
+                    direction="ingress",
+                    protocol="tcp",
+                    port_range_max=22,
+                    port_range_min=22,
+                    security_group_id=security_group_id,
+                    ether_type="IPv4")
             if type == "all_icmp":
                 new_rule = connection.network.create_security_group_rule(
                     direction="ingress",
                     protocol="ICMP",
                     security_group_id=security_group_id,
                     ether_type="IPv4",
+                    remote_ip_prefix="0.0.0.0/0")
+            if type == "http":
+                new_rule = connection.network.create_security_group_rule(
+                    direction="ingress",
+                    protocol="HTTP",
+                    security_group_id=security_group_id,
+                    ethertype="IPv4",
+                    remote_ip_prefix="0.0.0.0/0")
+
+            if type == "https":
+                new_rule = connection.network.create_security_group_rule(
+                    direction="ingress",
+                    protocol="HTTPS",
+                    security_group_id=security_group_id,
+                    ethertype="IPv4",
                     remote_ip_prefix="0.0.0.0/0")
 
             return new_rule.to_dict(), 201
