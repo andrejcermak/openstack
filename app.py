@@ -13,7 +13,7 @@ from resources.router import Router
 from resources.project import Project
 from resources.login import Login
 from resources.image import Image
-from resources.instance_tf import Instance2, Task
+from resources.instance_tf import InstanceTf, Task
 
 import os
 import logging
@@ -90,7 +90,7 @@ api.add_resource(Project, '/projects/')
 
 api.add_resource(Image, '/images/', '/images/<string:image_id>/')
 api.add_resource(Task, '/tasks/', '/tasks/<string:task_id>/')
-api.add_resource(Instance2, '/instances_tf/')
+api.add_resource(InstanceTf, '/instances_tf/')
 
 api.add_resource(Login, '/')
 

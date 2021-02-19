@@ -14,7 +14,7 @@ from Connection import connect
 import requests
 
 
-class Instance2(Resource):
+class InstanceTf(Resource):
 
 
     @staticmethod
